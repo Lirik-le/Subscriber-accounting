@@ -2,8 +2,6 @@
 
 namespace Controller;
 
-use Model\Post;
-use Model\TypesOfRoom;
 use Src\View;
 use Src\Request;
 use Model\User;
@@ -13,8 +11,7 @@ class Site
 {
     public function index(Request $request): string
     {
-        $posts = Post::where('id', $request->id)->get();
-        return (new View())->render('site.post', ['posts' => $posts]);
+        return (new View())->render('site.index');
     }
 
     public function hello(Request $request): string

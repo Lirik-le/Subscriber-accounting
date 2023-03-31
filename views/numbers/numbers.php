@@ -1,21 +1,20 @@
 <div class="basic">
     <div>
-        <p>Подразделения</p>
-        <button>Добавить новое</button>
+        <p>Номера</p>
+        <button>Добавить новый</button>
     </div>
 
 
     <div class="offices">
         <?php
-        foreach ($divisions as $division) {
-            ?>
+        foreach ($numbers as $number) {
+        ?>
             <div>
-                <span><?= $division->name_division ?></span>
-                <p><?= $division->type_of_division ?></p>
-                <p><?= $office->name_office ?></p>
+                <span><?= $number->number ?></span>
+                <p>Помещение</p>
                 <a href="#">Изменить</a>
             </div>
-            <?php
+        <?php
         }
         ?>
     </div>

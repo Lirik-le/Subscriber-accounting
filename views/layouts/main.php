@@ -2,8 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Главная</title>
-    <link rel="stylesheet" href="../../public/assets/css/main.css">
+    <title>ООО "Корпорейшен"</title>
 </head>
 <body>
 <main>
@@ -16,11 +15,13 @@
             <?php
             else:
             ?>
-                <p><a href="#">Учет абонентов</a></p>
-                <p><a href="#">Подразделения</a></p>
-                <p><a href="#">Помещения</a></p>
-                <p><a href="#">Офисы</a></p>
-                <p><a href="#">Добавить сотрудника</a></p>
+                <p><a href="<?= app()->route->getUrl('/subscribers') ?>">Учет абонентов</a></p>
+                <p><a href="<?= app()->route->getUrl('/numbers') ?>">Номера</a></p>
+                <p><a href="<?= app()->route->getUrl('/staff') ?>">Сотрудники</a></p>
+                <p><a href="<?= app()->route->getUrl('/divisions') ?>">Подразделения</a></p>
+                <p><a href="<?= app()->route->getUrl('/rooms') ?>">Помещения</a></p>
+                <p><a href="<?= app()->route->getUrl('/types') ?>">Типы помещений</a></p>
+                <p><a href="<?= app()->route->getUrl('/offices') ?>">Офисы</a></p>
                 <p><a href="<?= app()->route->getUrl('/logout') ?>">Выход (<?= app()->auth::user()->name ?>)</a></p>
             <?php
             endif;
@@ -35,7 +36,7 @@
     </div>
     <div class="main">
         <header>
-            <a href="<?= app()->route->getUrl('/offices') ?>"><h1 class="logo">ООО "Корпорейшен"</h1></a>
+            <a href="<?= app()->route->getUrl('/') ?>"><h1 class="logo">ООО "Корпорейшен"</h1></a>
             <div class="contact">
                 <p>+7(952)679-22-72</p>
                 <img src="assetss/img/vk.png" alt="">
@@ -51,7 +52,7 @@
     * {
         padding: 0;
         margin: 0;
-        font-family: Consolas;
+        font-family: Consolas, serif;
         font-size: 20px;
     }
 
@@ -93,7 +94,7 @@
     }
 
     .side > div:first-of-type > p > a {
-        font-size: 16px;
+        font-size: 18px;
     }
 
     .side > div:last-of-type {

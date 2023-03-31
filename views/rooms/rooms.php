@@ -1,18 +1,18 @@
 <div class="basic">
     <div>
-        <p>Подразделения</p>
-        <button>Добавить новое</button>
+        <p>Помещения</p>
+        <button>Добавить новый</button>
     </div>
 
 
     <div class="offices">
         <?php
-        foreach ($divisions as $division) {
+        foreach ($rooms as $room) {
             ?>
             <div>
-                <span><?= $division->name_division ?></span>
-                <p><?= $division->type_of_division ?></p>
-                <p><?= $office->name_office ?></p>
+                <span><?= $room->room_number ?></span>
+                <p>Аудитория</p>
+                <p>Подразделение</p>
                 <a href="#">Изменить</a>
             </div>
             <?php

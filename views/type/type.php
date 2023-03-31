@@ -1,19 +1,16 @@
 <div class="basic">
     <div>
-        <p>Подразделения</p>
-        <button>Добавить новое</button>
+        <p>Типы помещений</p>
+        <button>Добавить новый</button>
     </div>
 
 
     <div class="offices">
         <?php
-        foreach ($divisions as $division) {
+        foreach ($types as $type) {
             ?>
             <div>
-                <span><?= $division->name_division ?></span>
-                <p><?= $division->type_of_division ?></p>
-                <p><?= $office->name_office ?></p>
-                <a href="#">Изменить</a>
+                <span><?= $type->type_of_room ?></span>
             </div>
             <?php
         }
@@ -49,11 +46,12 @@
     }
 
     .offices > div {
-        width: 20%;
+        width: 10%;
         border: 2px solid lightgray;
         padding: 10px;
         margin: 10px;
         border-radius: 10px;
+        text-align: center;
     }
 
     .offices > div > p {
