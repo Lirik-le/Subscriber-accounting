@@ -4,6 +4,7 @@ namespace Model;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\HasOne;
 
 class Division extends Model
 {
@@ -17,4 +18,8 @@ class Division extends Model
         'type_of_division',
         'id_office'
     ];
+    public function office(): HasOne
+    {
+        return $this->hasOne(Office::class, 'id', 'id_office');
+    }
 }

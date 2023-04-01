@@ -12,7 +12,7 @@ class Divisions
     public function allDivision(Request $request): string
     {
         $divisions = Division::all();
-        $office = Office::all();
+        $office = Division::find()->office;
         return new View('divisions.divisions', ['divisions' => $divisions, 'office' => $office]);
     }
 }
