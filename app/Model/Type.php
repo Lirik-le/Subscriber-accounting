@@ -12,7 +12,7 @@ class Type extends Model
     public $timestamps = false;
     public $table = 'types_of_rooms';
     protected $fillable = [
-        'id_type',
+        'id',
         'type_of_room',
     ];
 }

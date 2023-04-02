@@ -4,6 +4,7 @@ namespace Model;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\BelongsTo;
 
 class Room extends Model
 {
@@ -12,9 +13,19 @@ class Room extends Model
     public $timestamps = false;
     public $table = 'rooms';
     protected $fillable = [
-        'id_room',
+        'id',
         'room_number',
         'id_division',
         'id_type'
     ];
+
+    public function division(): BelongsTo
+    {
+        return $this->belongsTo(Division::class, 'id_division', 'id');
+    }
+
+    public function type(): BelongsTo
+    {
+        return $this->belongsTo(Type::class, 'id_type', 'id');
+    }
 }

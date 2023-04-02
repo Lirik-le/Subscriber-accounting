@@ -19,9 +19,9 @@
                 <span><?= $subscriber->firstname ?></span>
                 <span><?= $subscriber->patronymic ?></span>
                 <p><?= $subscriber->date_of_birth ?></p>
-                <p>Офис</p>
-                <p>Помещение</p>
-                <p>Номер телефона</p>
+                <p>Номер: <?= $subscriber->number->number ?></p>
+                <p>Помещение: <?= $subscriber->number->room->room_number ?></p>
+                <p>Подразделение: <?= $subscriber->number->room->division->name_division ?></p>
                 <a href="#">Изменить</a>
             </div>
             <?php

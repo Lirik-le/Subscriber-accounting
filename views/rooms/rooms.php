@@ -11,9 +11,8 @@
             ?>
             <div>
                 <span><?= $room->room_number ?></span>
-                <p>Аудитория</p>
-                <p>Подразделение</p>
-                <a href="#">Изменить</a>
+                <p>Тип: <?= $room->type->type_of_room ?></p>
+                <p>Подразделение: <?= $room->division->name_division ?></p>
             </div>
             <?php
         }

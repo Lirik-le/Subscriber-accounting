@@ -11,8 +11,7 @@
         ?>
             <div>
                 <span><?= $number->number ?></span>
-                <p>Помещение</p>
-                <a href="#">Изменить</a>
+                <p>Помещение: <?= $number->room->room_number ?></p>
             </div>
         <?php
         }

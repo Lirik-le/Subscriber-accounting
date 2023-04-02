@@ -11,9 +11,8 @@
             ?>
             <div>
                 <span><?= $division->name_division ?></span>
-                <p><?= $division->type_of_division ?></p>
-                <p><?= $office->name_office ?></p>
-                <a href="#">Изменить</a>
+                <p>Тип: <?= $division->type_of_division ?></p>
+                <p>Офис: <?= $division->office->name_office ?></p>
             </div>
             <?php
         }

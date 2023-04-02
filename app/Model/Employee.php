@@ -12,7 +12,7 @@ class Employee extends Model
     public $timestamps = false;
     public $table = 'staff';
     protected $fillable = [
-        'id_staff ',
+        'id',
         'username',
         'password',
         'role'

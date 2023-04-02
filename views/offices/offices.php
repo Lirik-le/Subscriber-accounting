@@ -11,9 +11,8 @@
         ?>
             <div>
                 <span><?= $office->name_office ?></span>
-                <p><?= $office->address ?></p>
-                <p><?= $office->director ?></p>
-                <a href="#">Изменить</a>
+                <p>Адрес: <?= $office->address ?></p>
+                <p>Директор: <?= $office->director ?></p>
             </div>
         <?php
         }

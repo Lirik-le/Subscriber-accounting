@@ -10,9 +10,14 @@
         foreach ($staff as $employee) {
             ?>
             <div>
-                <span><?= $employee->username ?></span>
-                <p><?= $employee->role ?></p>
-                <a href="#">Изменить</a>
+                <span><?= $employee->username ?></span><?= $employee->role ?>
+                <?php
+                if ($employee->role){
+                    echo '<p>Администратор</p>';
+                } else {
+                    echo '<p>Рабочий</p>';
+                }
+                ?>
             </div>
             <?php
         }
