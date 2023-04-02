@@ -22,7 +22,7 @@
                 <p><a href="<?= app()->route->getUrl('/rooms') ?>">Помещения</a></p>
                 <p><a href="<?= app()->route->getUrl('/types') ?>">Типы помещений</a></p>
                 <p><a href="<?= app()->route->getUrl('/offices') ?>">Офисы</a></p>
-                <p><a href="<?= app()->route->getUrl('/logout') ?>">Выход (<?= app()->auth::user()->name ?>)</a></p>
+                <p><a href="<?= app()->route->getUrl('/logout') ?>">Выход (<?= app()->auth::user()->username ?>)</a></p>
             <?php
             endif;
             ?>
@@ -130,6 +130,80 @@
     .contact > img {
         width: 30px;
         height: 30px;
+    }
+
+    .basic {
+        margin: 50px 0 0 50px;
+        height: 1000px;
+    }
+
+    .basic > div:first-of-type {
+        display: flex;
+        justify-content: space-between;
+        width: 470px;
+        margin-left: 100px;
+        align-items: center;
+    }
+
+    .basic > div:first-of-type > p {
+        font-size: 28px;
+    }
+
+    .basic > div > button {
+        width: 200px;
+    }
+
+    .basic_inner {
+        display: flex;
+        flex-wrap: wrap;
+        margin-top: 25px;
+    }
+
+    .basic_inner > div {
+        width: 20%;
+        border: 2px solid lightgray;
+        padding: 10px;
+        margin: 10px;
+        border-radius: 10px;
+    }
+
+    .basic_inner > div > p {
+        padding-left: 10px;
+        font-size: 16px;
+        margin-top: 5px;
+    }
+
+    .add {
+        border: 2px solid lightgray;
+        border-radius: 5px;
+        padding: 5px 50px;
+    }
+
+    .login {
+        width: 400px;
+        margin: 200px auto;
+        text-align: center;
+    }
+
+    .login > div {
+        margin: 30px 0;
+    }
+
+    .login > div > input {
+        border: none;
+        border-bottom: 3px solid lightgray;
+        padding-left: 6px;
+        outline: none;
+        width: 300px;
+    }
+
+    .login > p {
+        font-size: 30px;
+    }
+
+    .btn {
+        width: 120px;
+        margin-bottom: 20px;
     }
 </style>
 </html>

@@ -4,7 +4,7 @@ namespace Controller;
 
 use Src\View;
 use Src\Request;
-use Model\User;
+use Model\Employee;
 use Src\Auth\Auth;
 
 class Site
@@ -16,7 +16,7 @@ class Site
 
     public function signup(Request $request): string
     {
-        if ($request->method === 'POST' && User::create($request->all())) {
+        if ($request->method === 'POST' && Employee::create($request->all())) {
             app()->route->redirect('/login');
         }
         return new View('site.signup');
