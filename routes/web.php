@@ -10,34 +10,34 @@ Route::add('GET', '/logout', [Controller\Site::class, 'logout'])
 Route::add('GET', '/offices', [Controller\Offices::class, 'allOffices'])
     ->middleware('auth');
 Route::add(['GET', 'POST'], '/offices/add', [Controller\Offices::class, 'addOffice'])
-    ->middleware('auth');
+    ->middleware('auth', 'admin');
 
 Route::add('GET', '/divisions', [Controller\Divisions::class, 'allDivisions'])
     ->middleware('auth');
 Route::add(['GET', 'POST'], '/divisions/add', [Controller\Divisions::class, 'addDivision'])
-    ->middleware('auth');
+    ->middleware('auth', 'admin');
 
 Route::add('GET', '/rooms', [Controller\Rooms::class, 'allRooms'])
     ->middleware('auth');
 Route::add(['GET', 'POST'], '/rooms/add', [Controller\Rooms::class, 'addRoom'])
-    ->middleware('auth');
+    ->middleware('auth', 'admin');
 
 Route::add('GET', '/subscribers', [Controller\Subscribers::class, 'allSubscribers'])
     ->middleware('auth');
 Route::add(['GET', 'POST'], '/subscribers/add', [Controller\Subscribers::class, 'addSubscriber'])
-    ->middleware('auth');
+    ->middleware('auth', 'admin');
 
 Route::add('GET', '/numbers', [Controller\Numbers::class, 'allNumbers'])
     ->middleware('auth');
 Route::add(['GET', 'POST'], '/numbers/add', [Controller\Numbers::class, 'addNumber'])
-    ->middleware('auth');
+    ->middleware('auth', 'admin');
 
 Route::add('GET', '/staff', [Controller\Staff::class, 'allStaff'])
     ->middleware('auth');
 Route::add(['GET', 'POST'], '/signup', [Controller\Site::class, 'signup'])
-    ->middleware('auth');
+    ->middleware('auth', 'admin');
 
 Route::add('GET', '/types', [Controller\Types::class, 'allTypes'])
     ->middleware('auth');
 Route::add(['GET', 'POST'], '/types/add', [Controller\Types::class, 'addType'])
-    ->middleware('auth');
+    ->middleware('auth', 'admin');

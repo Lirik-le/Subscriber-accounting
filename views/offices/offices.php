@@ -1,7 +1,13 @@
 <div class="basic">
     <div>
         <p>Офисы</p>
+        <?php
+        if (app()->auth::checkRole()):
+        ?>
         <a class="add" href="<?= app()->route->getUrl('/offices/add') ?>">Добавить новый</a>
+        <?php
+        endif;
+        ?>
     </div>
 
 

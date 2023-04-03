@@ -2,7 +2,7 @@
     <div>
         <p>Типы помещений</p>
         <?php
-        if (!app()->auth::checkRole()):
+        if (app()->auth::checkRole()):
         ?>
         <a class="add" href="<?= app()->route->getUrl('/types/add') ?>">Добавить новый</a>
         <?php

@@ -1,7 +1,13 @@
 <div class="basic">
     <div>
         <p>Номера</p>
+        <?php
+        if (app()->auth::checkRole()):
+        ?>
         <a class="add" href="<?= app()->route->getUrl('/numbers/add') ?>">Добавить новый</a>
+        <?php
+        endif;
+        ?>
     </div>
 
     <div class="basic_inner">

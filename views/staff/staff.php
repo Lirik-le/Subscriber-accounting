@@ -1,7 +1,13 @@
 <div class="basic">
     <div>
         <p>Сотрудники</p>
+        <?php
+        if (app()->auth::checkRole()):
+        ?>
         <a class="add" href="<?= app()->route->getUrl('/signup') ?>">Добавить нового</a>
+        <?php
+        endif;
+        ?>
     </div>
 
 

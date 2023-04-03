@@ -1,15 +1,25 @@
 <div class="basic">
     <div>
         <p>Учет абонентов</p>
+        <?php
+        if (app()->auth::checkRole()):
+        ?>
         <a class="add" href="<?= app()->route->getUrl('/subscribers/add') ?>">Добавить новое</a>
+        <?php
+        endif;
+        ?>
     </div>
-
+    <?php
+    if (!app()->auth::checkRole()):
+    ?>
     <div class="search">
         <label for="room"><input id="room" type="text"> помещение</label>
         <label for="div"><input id="div" type="text"> подразделение</label>
         <p>Количество абонентов: 8</p>
     </div>
-
+    <?php
+    endif;
+    ?>
     <div class="basic_inner">
         <?php
         foreach ($subscribers as $subscriber) {

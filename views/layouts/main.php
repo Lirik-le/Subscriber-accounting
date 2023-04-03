@@ -176,7 +176,7 @@
     .add {
         border: 2px solid lightgray;
         border-radius: 5px;
-        padding: 5px 50px;
+        padding: 5px 30px;
     }
 
     .form {
