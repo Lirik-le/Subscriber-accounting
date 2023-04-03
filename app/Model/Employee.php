@@ -39,6 +39,12 @@ class Employee extends Model implements IdentityInterface
         return $this->id;
     }
 
+    //Возврат роли
+    public function getRole(): int
+    {
+        return $this->role;
+    }
+
     //Возврат аутентифицированного пользователя
     public function attemptIdentity(array $credentials)
     {

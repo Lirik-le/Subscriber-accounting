@@ -10,7 +10,7 @@
         foreach ($staff as $employee) {
             ?>
             <div>
-                <span><?= $employee->username ?></span><?= $employee->role ?>
+                <span><?= $employee->username ?></span>
                 <?php
                 if ($employee->role){
                     echo '<p>Администратор</p>';

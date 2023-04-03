@@ -1,7 +1,7 @@
 <div class="basic">
     <div>
         <p>Подразделения</p>
-        <button>Добавить новое</button>
+        <a class="add" href="<?= app()->route->getUrl('/divisions/add') ?>">Добавить новое</a>
     </div>
 
 

@@ -1,9 +1,8 @@
 <div class="basic">
     <div>
         <p>Номера</p>
-        <button>Добавить новый</button>
+        <a class="add" href="<?= app()->route->getUrl('/numbers/add') ?>">Добавить новый</a>
     </div>
-
 
     <div class="basic_inner">
         <?php

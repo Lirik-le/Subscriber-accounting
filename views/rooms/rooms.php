@@ -1,7 +1,7 @@
 <div class="basic">
     <div>
         <p>Помещения</p>
-        <button>Добавить новый</button>
+        <a class="add" href="<?= app()->route->getUrl('/rooms/add') ?>">Добавить новый</a>
     </div>
 
 

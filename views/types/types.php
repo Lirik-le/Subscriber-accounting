@@ -1,7 +1,13 @@
 <div class="basic">
     <div>
         <p>Типы помещений</p>
-        <button>Добавить новый</button>
+        <?php
+        if (!app()->auth::checkRole()):
+        ?>
+        <a class="add" href="<?= app()->route->getUrl('/types/add') ?>">Добавить новый</a>
+        <?php
+        endif;
+        ?>
     </div>
 
 

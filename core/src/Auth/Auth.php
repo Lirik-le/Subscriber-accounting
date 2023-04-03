@@ -51,6 +51,22 @@ class Auth
         return false;
     }
 
+    //Получение роли пользователя
+    public static function role()
+    {
+        $role = Session::get('role') ?? 0;
+        return $role;
+    }
+
+    //Проверка является пользователь администратором
+    public static function checkRole(): bool
+    {
+        if (self::role()) {
+            return true;
+        }
+        return false;
+    }
+
     //Выход текущего пользователя
     public static function logout(): bool
     {

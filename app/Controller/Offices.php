@@ -8,9 +8,17 @@ use Model\Office;
 
 class Offices
 {
-    public function allOffices(Request $request): string
+    public function allOffices(): string
     {
         $offices = Office::all();
         return new View('offices.offices', ['offices' => $offices]);
+    }
+
+    public function addOffice(Request $request): string
+    {
+        if ($request->method === 'POST' && Office::create($request->all())) {
+            app()->route->redirect('/offices');
+        }
+        return new View('offices.addOffice');
     }
 }

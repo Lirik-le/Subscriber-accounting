@@ -1,7 +1,7 @@
 <?php
 if (!app()->auth::check()):
     ?>
-    <form class="login" method="post">
+    <form class="form" method="post">
         <p>Авторизация</p>
         <div>
             <input placeholder="Логин" id="login" type="text" name="username">

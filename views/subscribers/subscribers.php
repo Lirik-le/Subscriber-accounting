@@ -1,7 +1,7 @@
 <div class="basic">
     <div>
         <p>Учет абонентов</p>
-        <button>Добавить нового</button>
+        <a class="add" href="<?= app()->route->getUrl('/subscribers/add') ?>">Добавить новое</a>
     </div>
 
     <div class="search">

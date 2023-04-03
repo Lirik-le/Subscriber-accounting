@@ -179,17 +179,17 @@
         padding: 5px 50px;
     }
 
-    .login {
+    .form {
         width: 400px;
         margin: 200px auto;
         text-align: center;
     }
 
-    .login > div {
+    .form > div {
         margin: 30px 0;
     }
 
-    .login > div > input {
+    .form > div > input {
         border: none;
         border-bottom: 3px solid lightgray;
         padding-left: 6px;
@@ -197,13 +197,16 @@
         width: 300px;
     }
 
-    .login > p {
+    .form > p {
         font-size: 30px;
     }
 
     .btn {
-        width: 120px;
-        margin-bottom: 20px;
+        border: 2px solid lightgray;
+        border-radius: 5px;
+        padding: 5px 50px;
+        background: none;
+        cursor: pointer;
     }
 </style>
 </html>
