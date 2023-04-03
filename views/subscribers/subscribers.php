@@ -32,7 +32,13 @@
                 <p>Номер: <?= $subscriber->number->number ?></p>
                 <p>Помещение: <?= $subscriber->number->room->room_number ?></p>
                 <p>Подразделение: <?= $subscriber->number->room->division->name_division ?></p>
-                <a href="#">Изменить</a>
+                <?php
+                if (app()->auth::checkRole()):
+                ?>
+                    <a href="<?= app()->route->getUrl("/subscribers/change?id=$subscriber->id") ?>">Изменить</a>
+                <?php
+                endif;
+                ?>
             </div>
             <?php
         }

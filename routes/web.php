@@ -26,6 +26,8 @@ Route::add('GET', '/subscribers', [Controller\Subscribers::class, 'allSubscriber
     ->middleware('auth');
 Route::add(['GET', 'POST'], '/subscribers/add', [Controller\Subscribers::class, 'addSubscriber'])
     ->middleware('auth', 'admin');
+Route::add(['GET', 'POST'], '/subscribers/change', [Controller\Subscribers::class, 'changeSubscriber'])
+    ->middleware('auth', 'admin');
 
 Route::add('GET', '/numbers', [Controller\Numbers::class, 'allNumbers'])
     ->middleware('auth');

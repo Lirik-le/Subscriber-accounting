@@ -48,6 +48,7 @@
     </div>
 </main>
 </body>
+
 <style>
     * {
         padding: 0;

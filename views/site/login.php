@@ -14,6 +14,6 @@ if (!app()->auth::check()):
 
         <h3><?= app()->auth->user()->name ?? ''; ?></h3>
     </form>
-
-<?php endif;
+<?php
+endif;
 ?>
