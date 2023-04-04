@@ -13,8 +13,35 @@
     if (!app()->auth::checkRole()):
     ?>
     <div class="search">
-        <label for="room"><input id="room" type="text"> помещение</label>
-        <label for="div"><input id="div" type="text"> подразделение</label>
+        <form method="post">
+            <input name="csrf_token" type="hidden" value="<?= app()->auth::generateCSRF() ?>"/>
+            <label>
+                <select name="id_room">
+                    <option selected value="null">---</option>
+                    <?php
+                    foreach ($rooms as $room) {
+                        ?>
+                        <option value="<?= $room->id ?>"><?= $room->room_number ?></option>
+                        <?php
+                    }
+                    ?>
+                </select>
+                помещение</label>
+
+            <label>
+                <select name="id_division">
+                    <option selected value="null">---</option>
+                    <?php
+                    foreach ($divisions as $division) {
+                        ?>
+                        <option value="<?= $division->id ?>"><?= $division->name_division ?></option>
+                        <?php
+                    }
+                    ?>
+                </select>
+                подразделение</label>
+            <button>Найти</button>
+        </form>
         <p>Количество абонентов: 8</p>
     </div>
     <?php

@@ -3,6 +3,8 @@
 namespace Controller;
 
 use Model\Number;
+use Model\Room;
+use Model\Division;
 use Src\View;
 use Src\Request;
 use Model\Subscriber;
@@ -12,7 +14,18 @@ class Subscribers
     public function allSubscribers(Request $request): string
     {
         $subscribers = Subscriber::all();
-        return new View('subscribers.subscribers', ['subscribers' => $subscribers]);
+        $rooms = Room::all();
+        $divisions = Division::all();
+        if ($request->method === 'POST') {
+            $subscribers = [];
+            $selectedDivision = Division::where('id', $request->id_division)->get();
+            foreach ($selectedDivision[0]->rooms as $needRoom) {
+                foreach ($needRoom->numbers as $needNumber) {
+                    array_push($subscribers, $needNumber->subscriber);
+                }
+            }
+        }
+        return new View('subscribers.subscribers', ['subscribers' => $subscribers, 'rooms' => $rooms, 'divisions' => $divisions]);
     }
 
     public function addSubscriber(Request $request): string

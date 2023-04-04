@@ -22,7 +22,7 @@ Route::add('GET', '/rooms', [Controller\Rooms::class, 'allRooms'])
 Route::add(['GET', 'POST'], '/rooms/add', [Controller\Rooms::class, 'addRoom'])
     ->middleware('auth', 'admin');
 
-Route::add('GET', '/subscribers', [Controller\Subscribers::class, 'allSubscribers'])
+Route::add(['GET', 'POST'], '/subscribers', [Controller\Subscribers::class, 'allSubscribers'])
     ->middleware('auth');
 Route::add(['GET', 'POST'], '/subscribers/add', [Controller\Subscribers::class, 'addSubscriber'])
     ->middleware('auth', 'admin');

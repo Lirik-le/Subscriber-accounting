@@ -67,6 +67,7 @@
     }
 
     main {
+        position: relative;
         display: flex;
         justify-content: space-between;
     }
@@ -208,6 +209,10 @@
         padding: 5px 50px;
         background: none;
         cursor: pointer;
+    }
+
+    select {
+        width: 200px;
     }
 </style>
 </html>

@@ -5,6 +5,7 @@ namespace Model;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
+use Illuminate\Database\Eloquent\Relations\HasMany;
 
 class Room extends Model
 {
@@ -18,6 +19,11 @@ class Room extends Model
         'id_division',
         'id_type'
     ];
+
+    public function numbers(): HasMany
+    {
+        return $this->HasMany(Number::class, 'id_room', 'id');
+    }
 
     public function division(): BelongsTo
     {

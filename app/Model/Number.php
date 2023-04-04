@@ -5,6 +5,7 @@ namespace Model;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
+use Illuminate\Database\Eloquent\Relations\HasOne;
 
 class Number extends Model
 {
@@ -17,6 +18,11 @@ class Number extends Model
         'number',
         'id_room',
     ];
+
+    public function subscriber(): HasOne
+    {
+        return $this->HasOne(Subscriber::class, 'id_number', 'id');
+    }
 
     public function room(): BelongsTo
     {
