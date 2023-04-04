@@ -1,5 +1,6 @@
 <form class="form" method="post">
     <p>Регистрация нового пользователя</p>
+    <input name="csrf_token" type="hidden" value="<?= app()->auth::generateCSRF() ?>"/>
     <div>
         <input placeholder="Логин" id="login" type="text" name="username">
     </div>
