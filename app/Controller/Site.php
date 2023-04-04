@@ -6,6 +6,7 @@ use Src\View;
 use Src\Request;
 use Model\Employee;
 use Src\Auth\Auth;
+use Src\Validator\Validator;
 
 class Site
 {
@@ -16,8 +17,25 @@ class Site
 
     public function signup(Request $request): string
     {
-        if ($request->method === 'POST' && Employee::create($request->all())) {
-            app()->route->redirect('/login');
+        if ($request->method === 'POST') {
+
+            $validator = new Validator($request->all(), [
+                'name' => ['required'],
+                'login' => ['required', 'unique:staff,username'],
+                'password' => ['required']
+            ], [
+                'required' => 'Поле :field пусто',
+                'unique' => 'Поле :field должно быть уникально'
+            ]);
+
+            if($validator->fails()){
+                return new View('site.signup',
+                    ['message' => json_encode($validator->errors(), JSON_UNESCAPED_UNICODE)]);
+            }
+
+            if (Employee::create($request->all())) {
+                app()->route->redirect('/login');
+            }
         }
         return new View('site.signup');
     }
