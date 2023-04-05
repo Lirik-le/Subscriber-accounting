@@ -8,7 +8,12 @@ return [
     ],
     'validators' => [
         'required' => \Validators\RequireValidator::class,
-        'unique' => \Validators\UniqueValidator::class
+        'unique' => \Validators\UniqueValidator::class,
+        'chars' => \Validators\СharacterValidator::class,
+        'minLen' => \Validators\MinLengthValidator::class,
+        'image' => \Validators\ImageValidator::class,
+        'number' => \Validators\NumberLengthValidator::class,
+        'onlyNum' => \Validators\OnlyNumbersValidator::class,
     ],
     'routeAppMiddleware' => [
         'csrf' => \Middlewares\CSRFMiddleware::class,

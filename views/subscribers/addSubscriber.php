@@ -1,4 +1,4 @@
-<form class="form" method="post">
+<form class="form" method="post" enctype="multipart/form-data">
     <input name="csrf_token" type="hidden" value="<?= app()->auth::generateCSRF() ?>"/>
     <p>Добавление абонента</p>
     <div>
@@ -17,6 +17,11 @@
         <label>Дата рождения</label>
         <input name="date_of_birth" type="date">
         <h3><?= $message['date_of_birth'][0] ?? ''; ?></h3>
+    </div>
+    <div>
+        <label>Фотография</label>
+        <input name="photo" type="file">
+        <h3><?= $message['photo'][0] ?? ''; ?></h3>
     </div>
     <div>
         <label>Номер:</label>

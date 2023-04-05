@@ -19,11 +19,13 @@ class Site
     {
         if ($request->method === 'POST') {
             $validator = new Validator($request->all(), [
-                'username' => ['required', 'unique:staff,username'],
-                'password' => ['required']
+                'username' => ['required', 'unique:staff,username', 'chars', 'minLen'],
+                'password' => ['required', 'chars', 'minLen']
             ], [
                 'required' => 'Поле :field пусто',
-                'unique' => 'Поле :field должно быть уникально'
+                'unique' => 'Поле :field должно быть уникально',
+                'chars' => 'Поле :field может содержать только латиницу и цифры',
+                'minLen' => 'Поле :field должно содержать минимум 6 символов!',
             ]);
 
             if($validator->fails()){
@@ -32,7 +34,7 @@ class Site
             }
 
             if (Employee::create($request->all())) {
-                app()->route->redirect('/login');
+                app()->route->redirect('/staff');
             }
         }
         return new View('site.signup');

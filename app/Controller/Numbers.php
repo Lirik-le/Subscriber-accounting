@@ -21,11 +21,13 @@ class Numbers
         $rooms = Room::all();
         if ($request->method === 'POST') {
             $validator = new Validator($request->all(), [
-                'number' => ['required', 'unique:numbers,number'],
-                'id_room' => ['required', 'unique:numbers,id_room'],
+                'number' => ['required', 'unique:numbers,number', 'number', 'onlyNum'],
+                'id_room' => ['required'],
             ], [
                 'required' => 'Поле :field пусто',
-                'unique' => 'Поле :field должно быть уникально'
+                'unique' => 'Поле :field должно быть уникально',
+                'number' => 'Поле :field должно содержать 6 символов!',
+                'onlyNum' => 'Поле :field может содержать только цифры',
             ]);
 
             if ($validator->fails()) {

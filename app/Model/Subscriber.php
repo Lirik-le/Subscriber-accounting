@@ -18,11 +18,19 @@ class Subscriber extends Model
         'firstname',
         'patronymic',
         'date_of_birth',
-        'id_number'
+        'photo',
+        'id_number',
     ];
 
     public function number(): BelongsTo
     {
         return $this->belongsTo(Number::class, 'id_number', 'id');
+    }
+
+    public function photo($img)
+    {
+        $photo = time() . $img['name'] ;
+        $this->photo = $photo;
+        move_uploaded_file($img['tmp_name'], __DIR__ . '/../../public/Images/' . $photo);
     }
 }

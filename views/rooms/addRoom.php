@@ -29,5 +29,4 @@
         <h3><?= $message['id_type'][0] ?? ''; ?></h3>
     </div>
     <button class="btn">Добавить</button>
-    <h3><?= $message ?? ''; ?></h3>
 </form>

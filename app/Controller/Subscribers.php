@@ -47,19 +47,23 @@ class Subscribers
                 'firstname' => ['required'],
                 'patronymic' => ['required'],
                 'date_of_birth' => ['required'],
+                'photo' => ['image'],
                 'id_number' => ['required', 'unique:subscribers,id_number'],
             ], [
                 'required' => 'Поле :field пусто',
-                'unique' => 'Поле :field должно быть уникально'
+                'unique' => 'Поле :field должно быть уникально',
+                'image' => 'В поле :field должны быть картинки png и jpeg',
             ]);
 
             if ($validator->fails()) {
                 return new View('subscribers.addSubscriber',
                     ['message' => $validator->errors(), 'numbers' => $numbers]);
-            }
-
-            if (Subscriber::create($request->all()))
+            } else {
+                $subs = Subscriber::create($request->all());
+                $subs->photo($_FILES['photo']);
+                $subs->save();
                 app()->route->redirect('/subscribers');
+            }
         }
         return new View('subscribers.addSubscriber', ['numbers' => $numbers]);
     }

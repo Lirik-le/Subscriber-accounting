@@ -23,12 +23,13 @@ class Rooms
         $divisions = Division::all();
         if ($request->method === 'POST') {
             $validator = new Validator($request->all(), [
-                'room_number' => ['required', 'unique:rooms,room_number'],
+                'room_number' => ['required', 'unique:rooms,room_number', 'chars'],
                 'id_division' => ['required'],
                 'id_type' => ['required'],
             ], [
                 'required' => 'Поле :field пусто',
-                'unique' => 'Поле :field должно быть уникально'
+                'unique' => 'Поле :field должно быть уникально',
+                'chars' => 'Поле :field может содержать только латиницу и цифры',
             ]);
 
             if ($validator->fails()) {

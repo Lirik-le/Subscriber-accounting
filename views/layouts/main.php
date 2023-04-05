@@ -39,9 +39,9 @@
             <a href="<?= app()->route->getUrl('/') ?>"><h1 class="logo">ООО "Корпорейшен"</h1></a>
             <div class="contact">
                 <p>+7(952)679-22-72</p>
-                <img src="../../public/assets/img/vk.png" alt="">
-                <img src="../../public/assets/img/telegram.png" alt="">
-                <img src="../../public/assets/img/instagram.png" alt="">
+                <img src="../../public/Images/vk.png" alt="">
+                <img src="../../public/Images/telegram.png" alt="">
+                <img src="../../public/Images/instagram.png" alt="">
             </div>
         </header>
         <?= $content ?? '' ?>

@@ -8,26 +8,16 @@
     <div>
         <label>Помещение:</label>
         <select name="id_room">
-
-        </select>
-        <?php
-        foreach ($rooms as $room) {
-                ?>
-                <pre>
-                <?php
-                foreach ($room->numbers as $num)
-                var_dump($num->number);
-                ?>
-                </pre>
             <?php
-        }
-        die();
-        ?>
-
-
+            foreach ($rooms as $room) {
+                ?>
+                <option value="<?= $room->id ?>"><?= $room->room_number ?></option>
+                <?php
+            }
+            ?>
+        </select>
         <h3><?= $message['id_room'][0] ?? ''; ?></h3>
     </div>
     <button class="btn">Добавить</button>
 </form>
 
-<option value="<?= $room->id ?>"><?= $room->room_number ?></option>
