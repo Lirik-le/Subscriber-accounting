@@ -1,7 +1,9 @@
 <form class="form" method="post">
+    <input name="csrf_token" type="hidden" value="<?= app()->auth::generateCSRF() ?>"/>
     <p>Добавление помещения</p>
     <div>
         <input placeholder="Номер" name="room_number" type="text">
+        <h3><?= $message['room_number'][0] ?? ''; ?></h3>
     </div>
     <div>
         <label>Подразделение:</label>
@@ -13,7 +15,7 @@
                 <?php
             }
             ?>
-        </select><br><br>
+        </select><br><h3><?= $message['id_division'][0] ?? ''; ?></h3><br>
         <label>Тип:</label>
         <select name="id_type">
             <?php
@@ -23,7 +25,9 @@
                 <?php
             }
             ?>
-        </select>
+        </select><br>
+        <h3><?= $message['id_type'][0] ?? ''; ?></h3>
     </div>
     <button class="btn">Добавить</button>
+    <h3><?= $message ?? ''; ?></h3>
 </form>

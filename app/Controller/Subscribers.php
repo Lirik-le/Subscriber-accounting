@@ -5,6 +5,7 @@ namespace Controller;
 use Model\Number;
 use Model\Room;
 use Model\Division;
+use Src\Validator\Validator;
 use Src\View;
 use Src\Request;
 use Model\Subscriber;
@@ -17,22 +18,48 @@ class Subscribers
         $rooms = Room::all();
         $divisions = Division::all();
         if ($request->method === 'POST') {
-            $subscribers = [];
-            $selectedDivision = Division::where('id', $request->id_division)->get();
-            foreach ($selectedDivision[0]->rooms as $needRoom) {
-                foreach ($needRoom->numbers as $needNumber) {
+            if ($request->id_division !== 'null') {
+                $subscribers = [];
+                $selectedDivision = Division::where('id', $request->id_division)->get();
+                foreach ($selectedDivision[0]->rooms as $needRoom) {
+                    foreach ($needRoom->numbers as $needNumber) {
+                        array_push($subscribers, $needNumber->subscriber);
+                    }
+                }
+            } elseif ($request->id_room !== 'null') {
+                $subscribers = [];
+                $selectedRoom = Room::where('id', $request->id_room)->get();
+                foreach ($selectedRoom[0]->numbers as $needNumber) {
                     array_push($subscribers, $needNumber->subscriber);
                 }
             }
         }
-        return new View('subscribers.subscribers', ['subscribers' => $subscribers, 'rooms' => $rooms, 'divisions' => $divisions]);
+        $countSubs = count($subscribers);
+        return new View('subscribers.subscribers', ['subscribers' => $subscribers, 'rooms' => $rooms, 'divisions' => $divisions, 'countSubs' => $countSubs]);
     }
 
     public function addSubscriber(Request $request): string
     {
         $numbers = Number::all();
-        if ($request->method === 'POST' && Subscriber::create($request->all())) {
-            app()->route->redirect('/subscribers');
+        if ($request->method === 'POST') {
+            $validator = new Validator($request->all(), [
+                'lastname' => ['required'],
+                'firstname' => ['required'],
+                'patronymic' => ['required'],
+                'date_of_birth' => ['required'],
+                'id_number' => ['required', 'unique:subscribers,id_number'],
+            ], [
+                'required' => 'Поле :field пусто',
+                'unique' => 'Поле :field должно быть уникально'
+            ]);
+
+            if ($validator->fails()) {
+                return new View('subscribers.addSubscriber',
+                    ['message' => $validator->errors(), 'numbers' => $numbers]);
+            }
+
+            if (Subscriber::create($request->all()))
+                app()->route->redirect('/subscribers');
         }
         return new View('subscribers.addSubscriber', ['numbers' => $numbers]);
     }
@@ -43,6 +70,22 @@ class Subscribers
         $numbers = Number::all();
 
         if ($request->method === 'POST') {
+            $validator = new Validator($request->all(), [
+                'lastname' => ['required'],
+                'firstname' => ['required'],
+                'patronymic' => ['required'],
+                'date_of_birth' => ['required'],
+                'id_number' => ['required'],
+            ], [
+                'required' => 'Поле :field пусто',
+                'unique' => 'Поле :field должно быть уникально'
+            ]);
+
+            if ($validator->fails()) {
+                return new View('subscribers.changeSubscriber',
+                    ['message' => $validator->errors(), 'subscriber' => $subscriber, 'numbers' => $numbers]);
+            }
+
             $subscriber[0]->lastname = $request->lastname;
             $subscriber[0]->firstname = $request->firstname;
             $subscriber[0]->patronymic = $request->patronymic;

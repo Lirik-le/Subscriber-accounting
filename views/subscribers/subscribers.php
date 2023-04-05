@@ -9,6 +9,7 @@
         endif;
         ?>
     </div>
+
     <?php
     if (!app()->auth::checkRole()):
     ?>
@@ -42,11 +43,12 @@
                 подразделение</label>
             <button>Найти</button>
         </form>
-        <p>Количество абонентов: 8</p>
+        <p>Количество абонентов: <?= $countSubs ?></p>
     </div>
     <?php
     endif;
     ?>
+
     <div class="basic_inner">
         <?php
         foreach ($subscribers as $subscriber) {
@@ -80,5 +82,9 @@
         justify-content: space-between;
         align-items: center;
         margin-top: 25px;
+    }
+
+    .search > form > label {
+        margin: 0 20px
     }
 </style>

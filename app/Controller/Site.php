@@ -18,7 +18,6 @@ class Site
     public function signup(Request $request): string
     {
         if ($request->method === 'POST') {
-
             $validator = new Validator($request->all(), [
                 'username' => ['required', 'unique:staff,username'],
                 'password' => ['required']
@@ -29,7 +28,7 @@ class Site
 
             if($validator->fails()){
                 return new View('site.signup',
-                    ['message' => json_encode($validator->errors(), JSON_UNESCAPED_UNICODE)]);
+                    ['message' => $validator->errors()]);
             }
 
             if (Employee::create($request->all())) {

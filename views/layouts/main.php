@@ -136,7 +136,7 @@
 
     .basic {
         margin: 50px 0 0 50px;
-        height: 1000px;
+        height: 100%;
     }
 
     .basic > div:first-of-type {
