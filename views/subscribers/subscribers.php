@@ -54,8 +54,9 @@
         foreach ($subscribers as $subscriber) {
             ?>
             <div>
+                <img class="photo" src="../../Subscriber-accounting/public/Images/<?= $subscriber->photo ?>">
                 <span><?= $subscriber->lastname ?></span>
-                <span><?= $subscriber->firstname ?></span>
+                <span><?= $subscriber->firstname ?></span><br>
                 <span><?= $subscriber->patronymic ?></span>
                 <p><?= $subscriber->date_of_birth ?></p>
                 <p>Номер: <?= $subscriber->number->number ?></p>
@@ -86,5 +87,12 @@
 
     .search > form > label {
         margin: 0 20px
+    }
+
+    .photo {
+        max-width: 100%;
+        width: 100%;
+        max-height: 260px;
+        height: 100%;
     }
 </style>

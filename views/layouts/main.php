@@ -39,9 +39,9 @@
             <a href="<?= app()->route->getUrl('/') ?>"><h1 class="logo">ООО "Корпорейшен"</h1></a>
             <div class="contact">
                 <p>+7(952)679-22-72</p>
-                <img src="../../public/Images/vk.png" alt="">
-                <img src="../../public/Images/telegram.png" alt="">
-                <img src="../../public/Images/instagram.png" alt="">
+                <img src="../../../Subscriber-accounting/public/Images/vk.png" alt="">
+                <img src="../../Subscriber-accounting/public/Images/telegram.png" alt="">
+                <img src="../../Subscriber-accounting/public/Images/instagram.png" alt="">
             </div>
         </header>
         <?= $content ?? '' ?>
@@ -164,7 +164,7 @@
     .basic_inner > div {
         width: 20%;
         border: 2px solid lightgray;
-        padding: 10px;
+        padding: 20px;
         margin: 10px;
         border-radius: 10px;
     }

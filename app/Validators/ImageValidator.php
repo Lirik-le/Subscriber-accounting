@@ -10,6 +10,6 @@ class ImageValidator extends AbstractValidator
 
     public function rule(): bool
     {
-        return in_array($this->value['type'], ['image/png','image/jpeg']);
+        return in_array($this->value['type'], ['image/png','image/jpeg', 'image/webp']);
     }
 }
