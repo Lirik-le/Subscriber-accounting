@@ -2,7 +2,7 @@
 
 namespace Src\Auth;
 
-use Src\Session;
+use function Session\sessions;
 
 class Auth
 {
@@ -22,8 +22,8 @@ class Auth
     public static function login(IdentityInterface $user): void
     {
         self::$user = $user;
-        Session::set('id', self::$user->getId());
-        Session::set('role', self::$user->getRole());
+        sessions()->set('id', self::$user->getId());
+        sessions()->set('role', self::$user->getRole());
     }
 
     //Аутентификация пользователя и вход по учетным данным
@@ -39,7 +39,7 @@ class Auth
     //Возврат текущего аутентифицированного пользователя
     public static function user()
     {
-        $id = Session::get('id') ?? 0;
+        $id = sessions()->get('id') ?? 0;
         return self::$user->findIdentity($id);
     }
 
@@ -55,7 +55,7 @@ class Auth
     //Получение роли пользователя
     public static function role()
     {
-        $role = Session::get('role') ?? 0;
+        $role = sessions()->get('role') ?? 0;
         return $role;
     }
 
@@ -71,7 +71,7 @@ class Auth
     //Выход текущего пользователя
     public static function logout(): bool
     {
-        Session::clear('id');
+        sessions()->clear('id');
         return true;
     }
 
@@ -79,7 +79,7 @@ class Auth
     public static function generateCSRF(): string
     {
         $token = md5(time());
-        Session::set('csrf_token', $token);
+        sessions()->set('csrf_token', $token);
         return $token;
     }
 }

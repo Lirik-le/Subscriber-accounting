@@ -15,7 +15,9 @@
         "illuminate/database": "10.x-dev",
         "illuminate/events": "10.x-dev",
         "nikic/fast-route": "^2.0@dev",
-      "ext-json": "*"
+      "ext-json": "*",
+        "lirik-le/collect": "dev-master",
+        "lirik-le/session": "dev-master"
     },
     "autoload": {
         "psr-4": {
